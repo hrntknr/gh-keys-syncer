@@ -1,4 +1,5 @@
-#!/bin/bash -euo pipefail
+#!/bin/bash
+set -euo pipefail
 
 AK="$HOME/.ssh/authorized_keys"
 GH_USER="${GITHUB_USER:-$(whoami)}"
