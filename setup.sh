@@ -19,7 +19,7 @@ else
   git clone --depth=1 "$REPO_URL" "$INSTALL_DIR"
 fi
 
-SYNC_SCRIPT="$INSTALL_DIR/github_keys_sync.sh"
+SYNC_SCRIPT="$INSTALL_DIR/syncer.sh"
 chmod +x "$SYNC_SCRIPT"
 
 mkdir -p "$HOME/.ssh"
