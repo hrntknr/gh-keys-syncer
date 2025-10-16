@@ -14,20 +14,20 @@ if grep -q '^# begin gh-keys-syncer' "$AK"; then
   awk -v keys="$KEYS" '
     BEGIN {
       n = split(keys, arr, "\n")
-      in = 0
+      inside = 0
     }
     /^# begin gh-keys-syncer/ {
       print
       for (i = 1; i <= n; i++) if (arr[i] != "") print arr[i]
-      in = 1
+      inside = 1
       next
     }
-    in && /^# end gh-keys-syncer/ {
-      in = 0
+    inside && /^# end gh-keys-syncer/ {
+      inside = 0
       print
       next
     }
-    !in { print }
+    !inside { print }
   ' "$AK" > "$AK.tmp" && mv "$AK.tmp" "$AK"
 else
   {
